@@ -141,6 +141,11 @@
       gap: 16px;
     }
 
+    .section-stack {
+      display: grid;
+      gap: 32px;
+    }
+
     .approach-list {
       display: grid;
       gap: 16px;
@@ -416,7 +421,6 @@
       <a class="brand-mark" href="#top">Shane Stranahan</a>
       <nav class="site-nav" aria-label="Primary">
         <a href="#what-i-do">What I do</a>
-        <a href="#services">Services</a>
         <a href="#approach">Approach</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -431,12 +435,11 @@
           <p class="eyebrow">Freelance web design and applied AI consulting</p>
           <h1>Calm digital work for people who prefer clarity to noise.</h1>
           <p class="lead reading-block">
-            I design and build thoughtful websites, shape front-end systems, and help teams use AI in ways
-            that support real work rather than spectacle.
+            I design websites, build front-end systems, and help teams apply AI without turning their work into theater.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button button-primary" href="#contact">Start a conversation</a>
-            <a class="button button-secondary" href="#services">View services</a>
+            <a class="button button-secondary" href="#what-i-do">View services</a>
           </div>
         </div>
 
@@ -448,9 +451,9 @@
           </p>
           <div class="accent-line" aria-hidden="true"></div>
           <ul class="muted-list">
-            <li>Web design with editorial restraint</li>
-            <li>Front-end implementation without unnecessary layers</li>
-            <li>AI guidance focused on usefulness, not theater</li>
+            <li>Web design</li>
+            <li>Front-end implementation</li>
+            <li>AI guidance</li>
           </ul>
         </aside>
       </div>
@@ -459,48 +462,40 @@
     <section class="section" id="what-i-do">
       <div class="site-shell content-grid">
         <p class="section-label">What I do</p>
-        <div class="reading-block flow">
-          <h2>Design, language, and implementation kept in the same conversation.</h2>
-          <p class="lead">
-            I work across web design, front-end development, and applied AI consulting. That combination makes
-            it easier to keep ideas coherent from first draft through final implementation.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="site-shell content-grid">
-        <p class="section-label">Selected services</p>
-        <div class="services-list">
-          <article class="panel service-card">
-            <h3>Web Design</h3>
-            <p>
-              Information architecture, page composition, and visual systems for sites that need to feel clear,
-              distinctive, and credible.
-            </p>
-          </article>
-          <article class="panel service-card">
-            <h3>Front-End Development</h3>
-            <p>
-              Clean, lightweight implementation with attention to semantics, typography, responsiveness, and
-              the quiet details that shape quality.
-            </p>
-          </article>
-          <article class="panel service-card">
-            <h3>AI Consulting</h3>
-            <p>
-              Practical support for workflows, interfaces, and internal tools where AI can reduce friction and
-              improve decision-making.
-            </p>
-          </article>
-          <article class="panel service-card">
-            <h3>Content and Structure</h3>
-            <p>
-              Editing positioning, navigation, and page flow so the site says less, communicates more, and
-              arrives at confidence without noise.
-            </p>
-          </article>
+        <div class="section-stack">
+          <div class="narrow-block flow">
+            <h2>Design, language, and implementation.</h2>
+          </div>
+          <div class="services-list">
+            <article class="panel service-card">
+              <h3>Web Design</h3>
+              <p>
+                Information architecture, page composition, and visual systems for sites that need to feel clear,
+                distinctive, and credible.
+              </p>
+            </article>
+            <article class="panel service-card">
+              <h3>Front-End Development</h3>
+              <p>
+                Clean, lightweight implementation with attention to semantics, typography, responsiveness, and
+                the quiet details that shape quality.
+              </p>
+            </article>
+            <article class="panel service-card">
+              <h3>AI Consulting</h3>
+              <p>
+                Practical support for workflows, interfaces, and internal tools where AI can reduce friction and
+                improve decision-making.
+              </p>
+            </article>
+            <article class="panel service-card">
+              <h3>Content and Structure</h3>
+              <p>
+                Editing positioning, navigation, and page flow so the site says less, communicates more, and
+                arrives at confidence without noise.
+              </p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
