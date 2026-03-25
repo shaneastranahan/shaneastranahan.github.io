@@ -3,65 +3,594 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shane Stranahan</title>
+  <title>Shane Stranahan | Web Design and AI Consulting</title>
+  <meta
+    name="description"
+    content="Freelance web designer and AI consultant creating minimal, thoughtful websites and practical AI systems."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet"
+  >
   <style>
     :root {
       color-scheme: light;
-      --bg: #f5f3ee;
-      --surface: rgba(255, 255, 255, 0.78);
-      --text: #1c1a17;
-      --muted: #6c655d;
-      --border: rgba(28, 26, 23, 0.08);
-      --shadow: 0 20px 60px rgba(28, 26, 23, 0.08);
+      --bg: #f6f3ee;
+      --surface: #fbf9f5;
+      --surface-2: #f0ece6;
+      --text: #171717;
+      --text-soft: #5f5a54;
+      --text-faint: #8a837b;
+      --border: #d8d1c7;
+      --border-strong: #bfb6ab;
+      --accent: #4d5a52;
+      --accent-soft: #dde3de;
+      --button-bg: #1a1a1a;
+      --button-text: #f8f6f2;
+      --page-max: 1200px;
+      --content-max: 1100px;
+      --reading-width: 680px;
+      --narrow-width: 620px;
+      --radius-panel: 12px;
+      --radius-button: 8px;
+      --shadow-soft: 0 18px 36px rgba(23, 23, 23, 0.03);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
       background:
-        radial-gradient(circle at top, rgba(255, 255, 255, 0.92), transparent 42%),
-        linear-gradient(180deg, #f7f4ee 0%, var(--bg) 100%);
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 36%),
+        linear-gradient(180deg, #faf7f2 0%, var(--bg) 24%, var(--bg) 100%);
       color: var(--text);
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "Inter", sans-serif;
     }
 
-    main {
-      width: min(100%, 560px);
-      padding: 48px 40px;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      text-align: center;
-      backdrop-filter: blur(10px);
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .site-shell {
+      width: min(calc(100% - 48px), var(--page-max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(246, 243, 238, 0.86);
+      border-bottom: 1px solid rgba(216, 209, 199, 0.6);
+    }
+
+    .site-header .site-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 20px 0;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .site-main {
+      padding: 32px 0 96px;
+    }
+
+    .section {
+      padding: 64px 0;
+      border-top: 1px solid rgba(216, 209, 199, 0.72);
+    }
+
+    .section:first-child {
+      border-top: 0;
+      padding-top: 48px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 128px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.75fr);
+      gap: 48px;
+      align-items: end;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .reading-block {
+      max-width: var(--reading-width);
+    }
+
+    .narrow-block {
+      max-width: var(--narrow-width);
+    }
+
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .approach-list {
+      display: grid;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      counter-reset: principles;
+    }
+
+    .approach-list li {
+      counter-increment: principles;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-footer {
+      padding: 24px 0 40px;
+      border-top: 1px solid rgba(216, 209, 199, 0.72);
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand-mark {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--text);
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(2.4rem, 7vw, 4.5rem);
-      font-weight: 600;
-      letter-spacing: -0.04em;
+      max-width: 10ch;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.02;
     }
 
-    p {
-      margin: 16px 0 0;
-      color: var(--muted);
+    h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+
+    p,
+    li {
+      margin: 0;
       font-size: 1rem;
-      line-height: 1.6;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+
+    .lead {
+      font-size: 1.125rem;
+    }
+
+    .eyebrow,
+    .section-label,
+    .meta {
+      font-size: 0.75rem;
+      line-height: 1.4;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .section-label {
+      padding-top: 4px;
+    }
+
+    .brand-mark {
+      font-size: 1.65rem;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .site-nav a,
+    .text-link {
+      color: var(--text-soft);
+      text-decoration-color: rgba(95, 90, 84, 0.38);
+      text-underline-offset: 0.18em;
+      transition:
+        color 160ms ease,
+        text-decoration-color 160ms ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible,
+    .text-link:hover,
+    .text-link:focus-visible {
+      color: var(--text);
+      text-decoration-color: var(--text);
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 24px;
+    }
+
+    .flow > * + * {
+      margin-top: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 8px;
+    }
+
+    .panel {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      background: linear-gradient(180deg, rgba(251, 249, 245, 0.96), rgba(240, 236, 230, 0.78));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-note,
+    .nda-note {
+      display: grid;
+      gap: 16px;
+    }
+
+    .service-card {
+      display: grid;
+      gap: 12px;
+      min-height: 100%;
+    }
+
+    .service-card p {
+      max-width: 32ch;
+    }
+
+    .approach-item {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 16px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(216, 209, 199, 0.72);
+    }
+
+    .approach-item::before {
+      content: counter(principles, decimal-leading-zero);
+      font-size: 0.75rem;
+      line-height: 1.4;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      padding-top: 4px;
+    }
+
+    .approach-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-button);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background-color 160ms ease,
+        color 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      border-color: #202020;
+      background: var(--button-bg);
+      color: var(--button-text);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      background: #2a2a2a;
+    }
+
+    .button-secondary {
+      border-color: var(--border-strong);
+      background: transparent;
+      color: var(--text);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      border-color: var(--text-soft);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .accent-line {
+      width: 72px;
+      height: 1px;
+      background: var(--border-strong);
+    }
+
+    .muted-list {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .content-grid,
+      .services-list {
+        grid-template-columns: 1fr;
+      }
+
+      .site-header {
+        position: static;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-shell {
+        width: min(calc(100% - 32px), var(--page-max));
+      }
+
+      .site-header .site-shell {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .approach-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-actions,
+      .contact-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Shane Stranahan</h1>
-    <p>A quiet place on the web.</p>
+  <header class="site-header">
+    <div class="site-shell">
+      <a class="brand-mark" href="#top">Shane Stranahan</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#what-i-do">What I do</a>
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main" id="top">
+    <section class="section hero">
+      <div class="site-shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Freelance web design and applied AI consulting</p>
+          <h1>Calm digital work for people who prefer clarity to noise.</h1>
+          <p class="lead reading-block">
+            I design and build thoughtful websites, shape front-end systems, and help teams use AI in ways
+            that support real work rather than spectacle.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="#contact">Start a conversation</a>
+            <a class="button button-secondary" href="#services">View services</a>
+          </div>
+        </div>
+
+        <aside class="panel hero-note" aria-label="Studio note">
+          <p class="meta">Practice</p>
+          <p>
+            Independent, hands-on, and intentionally small. Best suited to projects that need judgment,
+            structure, and careful execution.
+          </p>
+          <div class="accent-line" aria-hidden="true"></div>
+          <ul class="muted-list">
+            <li>Web design with editorial restraint</li>
+            <li>Front-end implementation without unnecessary layers</li>
+            <li>AI guidance focused on usefulness, not theater</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="what-i-do">
+      <div class="site-shell content-grid">
+        <p class="section-label">What I do</p>
+        <div class="reading-block flow">
+          <h2>Design, language, and implementation kept in the same conversation.</h2>
+          <p class="lead">
+            I work across web design, front-end development, and applied AI consulting. That combination makes
+            it easier to keep ideas coherent from first draft through final implementation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="site-shell content-grid">
+        <p class="section-label">Selected services</p>
+        <div class="services-list">
+          <article class="panel service-card">
+            <h3>Web Design</h3>
+            <p>
+              Information architecture, page composition, and visual systems for sites that need to feel clear,
+              distinctive, and credible.
+            </p>
+          </article>
+          <article class="panel service-card">
+            <h3>Front-End Development</h3>
+            <p>
+              Clean, lightweight implementation with attention to semantics, typography, responsiveness, and
+              the quiet details that shape quality.
+            </p>
+          </article>
+          <article class="panel service-card">
+            <h3>AI Consulting</h3>
+            <p>
+              Practical support for workflows, interfaces, and internal tools where AI can reduce friction and
+              improve decision-making.
+            </p>
+          </article>
+          <article class="panel service-card">
+            <h3>Content and Structure</h3>
+            <p>
+              Editing positioning, navigation, and page flow so the site says less, communicates more, and
+              arrives at confidence without noise.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="site-shell content-grid">
+        <p class="section-label">Approach</p>
+        <div class="narrow-block">
+          <ol class="approach-list">
+            <li class="approach-item">
+              <div>
+                <h3>Clarity before decoration</h3>
+                <p>
+                  Structure, hierarchy, and language come first. Visual refinement should make meaning easier to
+                  feel, not harder to find.
+                </p>
+              </div>
+            </li>
+            <li class="approach-item">
+              <div>
+                <h3>Restraint as confidence</h3>
+                <p>
+                  Strong work does not need to raise its voice. The goal is a site that feels composed, precise,
+                  and considered.
+                </p>
+              </div>
+            </li>
+            <li class="approach-item">
+              <div>
+                <h3>AI with a real job to do</h3>
+                <p>
+                  I use AI where it improves utility, speed, or understanding. I avoid adding it where it only
+                  adds novelty.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="private-work">
+      <div class="site-shell content-grid">
+        <p class="section-label">Private work</p>
+        <aside class="panel nda-note narrow-block">
+          <h2>Most recent work is not public.</h2>
+          <p>
+            Many projects are NDA-bound or built for quiet internal use. I prefer to handle that directly rather
+            than dressing private work up as public case studies.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="site-shell content-grid">
+        <p class="section-label">About</p>
+        <div class="reading-block flow">
+          <h2>A generalist by discipline, not by vagueness.</h2>
+          <p>
+            My work tends to sit between design, writing, systems thinking, and implementation. That position is
+            useful when a project needs coherence more than it needs ceremony.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="site-shell content-grid">
+        <p class="section-label">Contact</p>
+        <div class="narrow-block">
+          <div class="contact-row">
+            <div class="flow">
+              <h2>A direct conversation works best.</h2>
+              <p>
+                Especially suitable for independent professionals, small studios, and research-led or early-stage
+                work that needs care rather than noise.
+              </p>
+            </div>
+            <a class="button button-primary" href="https://github.com/shaneastranahan">Contact on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-shell">
+      <p class="meta">Shane Stranahan | Web design, front-end development, and applied AI consulting</p>
+    </div>
+  </footer>
 </body>
 </html>
