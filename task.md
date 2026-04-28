@@ -1,7 +1,7 @@
 # task.md
 
 ## Last Completed Step
-Combined the “What I do” and services content into a single section in `index.html`, keeping the heading and four service cards while simplifying the flow.
+Updated the site identity and contact details in `index.html`, including the Axiomata.media branding and the final email contact CTA.
 
 ## Current Goal
 Refine content accuracy and visual polish
@@ -12,7 +12,7 @@ Refine content accuracy and visual polish
 - [x] Implement typography styles
 - [x] Add simple header + intro section
 - [x] Combine “What I do” and services into one section
-- [ ] Confirm final contact details and preferred outbound links
+- [x] Confirm final contact details and preferred outbound links
 - [ ] Tighten copy after content review
 - [ ] Review spacing and hierarchy in a browser
 - [ ] Trim any sections that still feel too generic
@@ -25,7 +25,7 @@ Refine content accuracy and visual polish
 ## Notes
 - No placeholder-heavy sections
 - Avoid generic “hero” patterns
-- Current draft uses the GitHub profile as the only confirmed outbound link.
+- Contact CTA now uses `mailto:hello@axiomata.media`.
 
 ## Recommended Next Step
-Review the merged section in-browser, confirm final contact details, and tighten any remaining copy that still feels broader than necessary.
+Review the updated branding and contact flow in-browser, then tighten any remaining copy that still feels broader than necessary.
